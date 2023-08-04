@@ -1,0 +1,24 @@
+{
+  "name": "elder-scrolls-tracker-back",
+  "version": "1.0.0",
+  "description": "rest apis for elder-scrolls-tracker",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Temeculous/elder-scrolls-tracker-back.git"
+  },
+  "keywords": [
+    "express",
+    "postgres",
+    "node"
+  ],
+  "author": "connor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Temeculous/elder-scrolls-tracker-back/issues"
+  },
+  "homepage": "https://github.com/Temeculous/elder-scrolls-tracker-back#readme"
+}
