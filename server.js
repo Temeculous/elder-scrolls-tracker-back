@@ -14,6 +14,17 @@ app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
 
+//do this when out of development - db.sequelize.sync().then(() => {console.log('synced db')})
+const db = require("./app/models");
+db.sequelize
+  .sync({ force: true })
+  .then(() => {
+    console.log("dropped and re-synced db");
+  })
+  .catch((err) => {
+    console.log("Failed to sync db" + err.message);
+  });
+
 app.get("/", (req, res) => {
   res.json({ message: "All is well, hello world" });
 });
