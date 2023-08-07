@@ -29,6 +29,8 @@ app.get("/", (req, res) => {
   res.json({ message: "All is well, hello world" });
 });
 
+require("./app/routes/ESGame.routes")(app);
+
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`Server running on ${PORT}`);
