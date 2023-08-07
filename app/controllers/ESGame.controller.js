@@ -110,4 +110,19 @@ exports.delete = (req, res) => {
 };
 
 //Delete all games from db
-exports.deleteAll = (req, res) => {};
+exports.deleteAll = (req, res) => {
+  ESGame.destroy({
+    where: {},
+    truncate: false,
+  })
+    .then((nums) => {
+      res.send({ message: `${nums} games were deleted successfully` });
+    })
+    .catch((err) => {
+      res
+        .status(500)
+        .send({
+          message: err.message || "An error occurred while deleting games",
+        });
+    });
+};
