@@ -6,11 +6,14 @@ module.exports = (sequelize, Sequelize) => {
     popularity: {
       type: Sequelize.STRING,
     },
-    releaseYeae: {
+    releaseYear: {
       type: Sequelize.INTEGER,
     },
     completionHours: {
       type: Sequelize.INTEGER,
+    },
+    imgURL: {
+      type: Sequelize.STRING,
     },
   });
   return ESGame;
