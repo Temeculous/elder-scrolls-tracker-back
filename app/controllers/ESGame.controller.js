@@ -1,6 +1,7 @@
 const db = require("../models");
 const ESGame = db.esgame;
 const Op = db.Sequelize.Op;
+//Op is just operators from Sequelize
 
 //Create new game instance
 exports.create = (req, res) => {
@@ -28,31 +29,43 @@ exports.create = (req, res) => {
 };
 
 //Retrieve all games
-exports.getAll = (req, res) => {
+exports.findAll = (req, res) => {
   const title = req.query.title;
   let condition = title ? { title: { [Op.iLike]: `%${title}%` } } : null;
 
-  ESGame.getAll({ where: condition })
+  ESGame.findAll({ where: condition })
     .then((data) => {
-      tes.send(data);
+      res.send(data);
     })
     .catch((err) => {
-      res
-        .status(500)
-        .send({
-          message: err.message || "An error occured while retrieving ES Games!",
-        });
+      res.status(500).send({
+        message: err.message || "An error occured while retrieving ES Games!",
+      });
     });
 };
 
 //Retrieve single game by id
-exports.getOne = (req, res) => {};
+exports.findOne = (req, res) => {
+  const id = req.params.id;
+
+  ESGame.findByPk(id)
+    .then((data) => {
+      if (data) {
+        res.send(data);
+      } else {
+        res.status(404).send({ message: `Cannot find game with id ${id}` });
+      }
+    })
+    .catch((err) => {
+      res.status(500).send({ message: `Error retrieving game with id ${id}` });
+    });
+};
 
 //Update single game by id
 exports.update = (req, res) => {};
 
 //Delete single game by id
-exports.deleteOne = (req, res) => {};
+exports.delete = (req, res) => {};
 
 //Delete all games from db
 exports.deleteAll = (req, res) => {};
