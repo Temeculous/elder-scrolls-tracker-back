@@ -21,16 +21,29 @@ exports.create = (req, res) => {
       res.send(data);
     })
     .catch((err) => {
-      res
-        .statys(500)
-        .send({
-          message: err.message || "An error occured while creating new game!",
-        });
+      res.statys(500).send({
+        message: err.message || "An error occured while creating new game!",
+      });
     });
 };
 
 //Retrieve all games
-exports.getAll = (req, res) => {};
+exports.getAll = (req, res) => {
+  const title = req.query.title;
+  let condition = title ? { title: { [Op.iLike]: `%${title}%` } } : null;
+
+  ESGame.getAll({ where: condition })
+    .then((data) => {
+      tes.send(data);
+    })
+    .catch((err) => {
+      res
+        .status(500)
+        .send({
+          message: err.message || "An error occured while retrieving ES Games!",
+        });
+    });
+};
 
 //Retrieve single game by id
 exports.getOne = (req, res) => {};
