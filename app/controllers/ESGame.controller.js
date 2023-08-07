@@ -62,7 +62,27 @@ exports.findOne = (req, res) => {
 };
 
 //Update single game by id
-exports.update = (req, res) => {};
+exports.update = (req, res) => {
+  const id = req.params.id;
+
+  ESGame.update(req.body, {
+    where: { id: id },
+  })
+    .then((num) => {
+      if (num == 1) {
+        res.send({ message: "Game successfully updated" });
+      } else {
+        res.send({
+          message: `Cannot update game with id ${id} Check that all fields are filled in!`,
+        });
+      }
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: `Error updating game with id ${id}`,
+      });
+    });
+};
 
 //Delete single game by id
 exports.delete = (req, res) => {};
