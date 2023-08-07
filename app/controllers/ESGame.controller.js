@@ -57,7 +57,7 @@ exports.findOne = (req, res) => {
       }
     })
     .catch((err) => {
-      res.status(500).send({ message: `Error retrieving game with id ${id}` });
+      res.status(500).send({ message: "Error retrieving game with id" + id });
     });
 };
 
@@ -79,13 +79,35 @@ exports.update = (req, res) => {
     })
     .catch((err) => {
       res.status(500).send({
-        message: `Error updating game with id ${id}`,
+        message: "Error updating game with id" + id,
       });
     });
 };
 
 //Delete single game by id
-exports.delete = (req, res) => {};
+exports.delete = (req, res) => {
+  const id = req.params.id;
+
+  ESGame.destroy({
+    where: { id: id },
+  })
+    .then((num) => {
+      if (num == 1) {
+        res.send({
+          message: "Game was deleted successfully",
+        });
+      } else {
+        res.send({
+          message: `Cannot delete game with id ${id} it may have not been found!`,
+        });
+      }
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: "Could not delete game with id" + id,
+      });
+    });
+};
 
 //Delete all games from db
 exports.deleteAll = (req, res) => {};
