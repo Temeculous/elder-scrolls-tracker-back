@@ -1,13 +1,15 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const { pool } = require("./config");
 
 const app = express();
 
 let corsOptions = {
   origin: "http://localhost:5173",
 };
-
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors(corsOptions));
 
 app.use(express.json());
