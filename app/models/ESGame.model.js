@@ -12,9 +12,6 @@ module.exports = (sequelize, Sequelize) => {
     completionHours: {
       type: Sequelize.INTEGER,
     },
-    imgURL: {
-      type: Sequelize.STRING,
-    },
   });
   return ESGame;
 };
