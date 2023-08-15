@@ -2,6 +2,10 @@ const dbConfig = require("../config/db.config.js");
 
 const Sequelize = require("sequelize");
 const sequelize = new Sequelize(process.env.DATABASE_URL, {
+  define: {
+    createdAt: "createdat",
+    updatedAt: "updatedat",
+  },
   dialectOptions: {
     ssl: {
       require: true,
