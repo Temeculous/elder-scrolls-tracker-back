@@ -7,4 +7,4 @@ CREATE TABLE esgames (
 );
 
 INSERT INTO esgames (title,popularity,releaseYear,completionHours)
-VALUES ('Elder Scrolls 1: Arena', 'Not very popular', 1994, 44);
+VALUES ("Elder Scrolls 1: Arena", "Not very popular", 1994, 44);

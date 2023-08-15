@@ -12,9 +12,8 @@ exports.create = (req, res) => {
   const game = {
     title: req.body.title,
     popularity: req.body.popularity,
-    releaseYear: req.body.releaseYear,
-    completionHours: req.body.completionHours,
-    imgURL: req.body.imgURL,
+    releaseyear: req.body.releaseyear,
+    completionhours: req.body.completionhours,
   };
 
   ESGame.create(game)
@@ -119,10 +118,8 @@ exports.deleteAll = (req, res) => {
       res.send({ message: `${nums} games were deleted successfully` });
     })
     .catch((err) => {
-      res
-        .status(500)
-        .send({
-          message: err.message || "An error occurred while deleting games",
-        });
+      res.status(500).send({
+        message: err.message || "An error occurred while deleting games",
+      });
     });
 };
