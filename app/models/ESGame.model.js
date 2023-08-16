@@ -6,10 +6,10 @@ module.exports = (sequelize, Sequelize) => {
     popularity: {
       type: Sequelize.STRING,
     },
-    releaseyear: {
+    releaseYear: {
       type: Sequelize.INTEGER,
     },
-    completionhours: {
+    completionHours: {
       type: Sequelize.INTEGER,
     },
   });

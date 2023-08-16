@@ -1,11 +1,11 @@
 CREATE TABLE esgames (
     ID SERIAL PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
-    popularity VARCHAR(255) NOT NULL,
-    releaseYear INTEGER NOT NULL,
-    completionHours INTEGER NOT NULL,
-    createdAt TIMESTAMP NOT NULL,
-    updatedAt TIMESTAMP NOT NULL
+    "title" VARCHAR(255) NOT NULL,
+    "popularity" VARCHAR(255) NOT NULL,
+    "releaseYear" INTEGER NOT NULL,
+    "completionHours" INTEGER NOT NULL,
+    "createdAt" TIMESTAMP NOT NULL,
+    "updatedAt" TIMESTAMP NOT NULL
 );
 
 INSERT INTO esgames (title,popularity,releaseYear,completionHours)

@@ -12,8 +12,8 @@ exports.create = (req, res) => {
   const game = {
     title: req.body.title,
     popularity: req.body.popularity,
-    releaseyear: req.body.releaseyear,
-    completionhours: req.body.completionhours,
+    releaseYear: req.body.releaseYear,
+    completionHours: req.body.completionHours,
   };
 
   ESGame.create(game)
