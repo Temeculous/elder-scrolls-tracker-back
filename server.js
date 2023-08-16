@@ -6,7 +6,7 @@ const { pool } = require("./config");
 const app = express();
 
 let corsOptions = {
-  origin: "https://fascinating-crepe-a1304b.netlify.app/",
+  origin: "https://fascinating-crepe-a1304b.netlify.app",
 };
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
