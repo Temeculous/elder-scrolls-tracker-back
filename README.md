@@ -7,7 +7,7 @@
 **express**,
 **pg**,
 **pg-hstore**,
-**sequelize**,
+**sequelize**
 
 run `npm i` when cloning repo
 
