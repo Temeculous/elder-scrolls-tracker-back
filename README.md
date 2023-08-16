@@ -1,13 +1,13 @@
-# elder-scrolls-tracker-back
+# elder-scrolls-tracker-back-end
 
 ## Dependencies
 
-**cors**
-**dotenv**
-**express**
-**pg**
-++pg-hstore\*\*
-**sequelize**
+**cors**,
+**dotenv**,
+**express**,
+**pg**,
+**pg-hstore**,
+**sequelize**,
 
 run `npm i` when cloning repo
 
